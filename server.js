@@ -24,7 +24,7 @@ app.use(express.json());
 // Enable CORS
 app.use(
 	cors({
-		origin: ['https://figmabackend.onrender.com', 'http://localhost:5000', 'http://localhost:5000'],
+		origin: ['https://figmabackend.onrender.com', 'http://localhost:5000', 'http://localhost:3000'],
 		credentials: true,
 	})
 )
