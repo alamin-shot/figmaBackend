@@ -22,7 +22,12 @@ const app = express();
 app.use(express.json());
 
 // Enable CORS
-app.use(cors());
+app.use(
+	cors({
+		origin: ['https://figmabackend.onrender.com', 'http://localhost:5000'],
+		credentials: true,
+	})
+)
 
 // Mount routers
 app.use('/api/breakfast', breakfastRoutes);
