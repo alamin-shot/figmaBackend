@@ -16,13 +16,19 @@ const lunchRoutes = require('./routes/lunchRoutes');
 const dinnerRoutes = require('./routes/dinnerRoutes');
 const memberRoutes = require('./routes/memberRoutes');
 const headerImageRoutes = require('./routes/headerImageRoute');
+const reviewRoutes = require('./routes/reviewRoutes');
 const app = express();
 
 // Body parser
 app.use(express.json());
 
 // Enable CORS
-app.use(cors());
+app.use(
+	cors({
+		origin: ['https://figmabackend.onrender.com', 'http://localhost:5000'],
+		credentials: true,
+	})
+);
 
 // Mount routers
 app.use('/api/breakfast', breakfastRoutes);
@@ -30,6 +36,8 @@ app.use('/api/lunch', lunchRoutes);
 app.use('/api/dinner', dinnerRoutes);
 app.use('/api/members', memberRoutes);
 app.use('/api/headerimages', headerImageRoutes);
+app.use('/api/reviews', reviewRoutes);
+
 app.get('/', (req, res) => {
 	res.send('API is running...');
 });
