@@ -1,9 +1,9 @@
-import Review from '../models/Review';
+const Review = require('../models/Review');
 
 // @desc    Get all reviews
 // @route   GET /api/reviews
 // @access  Public
-export const getReviews = async (req, res) => {
+const getReviews = async (req, res) => {
 	try {
 		const reviews = await Review.find().sort({ createdAt: -1 });
 		res.status(200).json({
@@ -22,7 +22,7 @@ export const getReviews = async (req, res) => {
 // @desc    Add new review
 // @route   POST /api/reviews
 // @access  Public
-export const addReview = async (req, res) => {
+const addReview = async (req, res) => {
 	try {
 		const review = await Review.create(req.body);
 		res.status(201).json({
@@ -48,7 +48,7 @@ export const addReview = async (req, res) => {
 // @desc    Delete review
 // @route   DELETE /api/reviews/:id
 // @access  Public
-export const deleteReview = async (req, res) => {
+const deleteReview = async (req, res) => {
 	try {
 		const review = await Review.findById(req.params.id);
 
@@ -72,3 +72,5 @@ export const deleteReview = async (req, res) => {
 		});
 	}
 };
+
+module.exports = { getReviews, addReview, deleteReview };
