@@ -26,6 +26,7 @@ app.use(express.json());
 app.use(
 	cors({
 		origin: [
+			'https://figmafrontend-omega.vercel.app/',
 			'https://figmabackend.onrender.com',
 			'http://localhost:5000',
 			'http://localhost:3000',
