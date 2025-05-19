@@ -37,7 +37,7 @@ app.use(
 		 allowedHeaders: ['Content-Type', 'Authorization']
 	})
 );
-app.options('*', cors());
+
 // Mount routers
 app.use('/api/breakfast', breakfastRoutes);
 app.use('/api/lunch', lunchRoutes);
